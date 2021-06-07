@@ -1,0 +1,57 @@
+
+
+div{
+    border: 1px red dashed;
+}
+
+
+div.container{
+    background-color: antiquewhite;
+    height: 50%;
+    width: 30%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+div.name{
+    margin: auto;
+    background-color: red;
+    height: 50px;
+    width: 200px;
+}
+
+div.username{
+    margin-left: 10px;
+}
+
+div.password{
+    margin-left: 10px;
+}
+
+body::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:transparent url(海.png) center center no-repeat;
+    filter:blur(5px);
+    z-index:-1;
+    background-size:cover;
+
+}
+
+.container{
+    box-shadow: gray 10px 10px 10px 10px ;
+}
+
+#username{
+    background:rgba(45,45,45,0.15);
+    border-color: rgba(45,45,45,0.15);
+}
+
