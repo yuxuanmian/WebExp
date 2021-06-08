@@ -1,14 +1,11 @@
 
 
-div{
-    border: 1px red dashed;
-}
 
 
 div.container{
-    background-color: antiquewhite;
-    height: 50%;
-    width: 30%;
+
+    height: 500px;
+    width: 300px;
     position: absolute;
     margin: auto;
     top: 0;
@@ -19,17 +16,25 @@ div.container{
 
 div.name{
     margin: auto;
-    background-color: red;
     height: 50px;
-    width: 200px;
+    width: 250px;
 }
 
-div.username{
+div.username {
     margin-left: 10px;
+    height: 100px;
 }
-
 div.password{
     margin-left: 10px;
+    height: 100px;
+}
+div.button{
+    height: 50px;
+    margin-left: 20%;
+}
+div.create{
+
+    margin-left: 40% ;
 }
 
 body::before{
@@ -46,12 +51,28 @@ body::before{
 
 }
 
-.container{
-    box-shadow: gray 10px 10px 10px 10px ;
-}
+
 
 #username{
     background:rgba(45,45,45,0.15);
     border-color: rgba(45,45,45,0.15);
+    border-radius: 5px;
+    border:1px solid gray;
+    font-size: xx-large;
 }
-
+#password{
+    background:rgba(45,45,45,0.15);
+    border-color: rgba(45,45,45,0.15);
+    border-radius: 5px;
+    border:1px solid gray;
+    font-size: xx-large;
+}
+input::-webkit-input-placeholder {
+    color: rgba(0,0,0,0.32);
+}
+button{
+    background-color: transparent;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: x-large;
+}
