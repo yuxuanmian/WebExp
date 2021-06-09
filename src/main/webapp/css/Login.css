@@ -4,7 +4,7 @@
 
 div.container{
 
-    height: 500px;
+    height: 300px;
     width: 300px;
     position: absolute;
     margin: auto;
@@ -68,7 +68,7 @@ body::before{
     font-size: xx-large;
 }
 input::-webkit-input-placeholder {
-    color: rgba(0,0,0,0.32);
+    color: rgba(0,0,0,0.32);<!-- input框内提示字体默认颜色 -->
 }
 button{
     background-color: transparent;
