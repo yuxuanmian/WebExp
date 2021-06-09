@@ -32,8 +32,18 @@ public class LoginInfoCon {
         return result;
     }
     //从数据库库中读取所有用户账号和密码
-//    public List getAllUser(){
-//        String sql="select * from book";
-//        List list=dbUtil.getResultList(sql,)
-//    }
+    public List getAllUser(){
+        String sql="select * from user";
+        String []params={};
+        List orgin = dbUtil.getResultList(sql, params);
+        List result=new ArrayList();
+        for(Object a:orgin){
+            Map<String, String> a1=(Map)a;
+            LoginInfoBean temp=new LoginInfoBean();
+            temp.setUsername(a1.get("username"));
+            temp.setPassword(a1.get("password"));
+            result.add(temp);
+        }
+        return result;
+    }
 }
