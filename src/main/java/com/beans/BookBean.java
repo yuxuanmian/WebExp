@@ -1,16 +1,16 @@
 package com.beans;
 
-public class Book {
+public class BookBean {
     private String number;
     private String bname;
     private String bauthor;
     private String bpublisher;
     private double bprice;
 
-    public Book() {
+    public BookBean() {
     }
 
-    public Book(String number, String bname, String bauthor, String bpublisher, double bprice) {
+    public BookBean(String number, String bname, String bauthor, String bpublisher, double bprice) {
         this.number = number;
         this.bname = bname;
         this.bauthor = bauthor;
@@ -54,7 +54,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "BookBean{" +
                 "number='" + number + '\'' +
                 ", bname='" + bname + '\'' +
                 ", bauthor='" + bauthor + '\'' +

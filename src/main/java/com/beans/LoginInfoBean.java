@@ -3,11 +3,11 @@ package com.beans;
 
 
 //用户登录类，包含用户名和密码，生成了构造函数、getter、setter
-public class LoginInfo {
+public class LoginInfoBean {
     private String username;
     private String password;
 
-    public LoginInfo() {
+    public LoginInfoBean() {
     }
 
     public String getUsername() {
@@ -28,7 +28,7 @@ public class LoginInfo {
 
     @Override
     public String toString() {
-        return "LoginInfo{" +
+        return "LoginInfoBean{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
