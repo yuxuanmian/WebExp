@@ -1,17 +1,12 @@
 
-
-
-
 div.container{
 
-    height: 500px;
+    background-color: transparent;
+    border-radius: 20px;
     width: 300px;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    height: 350px;
+    margin: 100px 40%;
+
 }
 
 div.name{
@@ -30,7 +25,7 @@ div.password{
 }
 div.button{
     height: 50px;
-    margin-left: 20%;
+    margin-left: 30%;
 }
 div.create{
 
@@ -55,20 +50,18 @@ body::before{
 
 #username{
     background:rgba(45,45,45,0.15);
-    border-color: rgba(45,45,45,0.15);
     border-radius: 5px;
     border:1px solid gray;
     font-size: xx-large;
 }
 #password{
     background:rgba(45,45,45,0.15);
-    border-color: rgba(45,45,45,0.15);
     border-radius: 5px;
     border:1px solid gray;
     font-size: xx-large;
 }
 input::-webkit-input-placeholder {
-    color: rgba(0,0,0,0.32);
+    color: rgba(0,0,0,0.32);<!-- input框内提示字体默认颜色 -->
 }
 button{
     background-color: transparent;
