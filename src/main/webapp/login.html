@@ -43,18 +43,20 @@ let passwordnode=document.getElementById("password");
 
 document.getElementById("submit_button").onclick=function (){
     let xhr=new XMLHttpRequest();
-    xhr.open("post","serv");//---------------------------------------------填servlet
+    xhr.open("post","" ,true);//---------------------------------------------填servlet的url
     let username=usernamenode.value;
     let password=passwordnode.value;
-    let data={
+    let data={//--------------------------------------------------------json结构，左边是参数名
         "password":password,
         "username":username
     }
-    xhr.send(JSON.stringify(data));
+    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");//post一定要设置请求头
+    xhr.send("data="+JSON.stringify(data));
+    console.log(JSON.stringify(data));
     xhr.onreadystatechange=function (){
         if(xhr.readyState===4){
             if(xhr.status>=200&&xhr.status<300){
-
+              //缺！后端写完后加上处理函数
             }
         }
     }
