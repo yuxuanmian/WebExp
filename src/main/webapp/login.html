@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     <title>用户登录界面</title>
-    <link href="../css/Login.css" rel="stylesheet" type="text/css">
+    <link href="css/Login.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
 <audio  autoplay="autoplay" controls="controls" loop="loop">
-    <source src="../thing/松本文紀%20-%20夜の向日葵.mp3" >
+    <source src="thing/松本文紀%20-%20夜の向日葵.mp3" >
 </audio>
 <div class="container">
-   <form action="" method="post">
        <div class="username">
            <h3>账户名</h3>
         <input type="text" name="username" id="username" placeholder="请输入您的用户名！">
@@ -25,7 +24,7 @@
            </span>
        </div>
        <div class="button">
-           <button type="submit" id="submit_button">登录</button>
+           <button id="submit_button">登录</button>
            &nbsp;
            <button type="reset" class="reset">重新输入</button>
        </div>
@@ -34,13 +33,32 @@
            <a href="create.html">点击注册</a>
        </div>
 <div></div>
-    </form>
 </div>
 
 
 
 <script>
+let usernamenode=document.getElementById("username");
+let passwordnode=document.getElementById("password");
 
+document.getElementById("submit_button").onclick=function (){
+    let xhr=new XMLHttpRequest();
+    xhr.open("post","serv");//---------------------------------------------填servlet
+    let username=usernamenode.value;
+    let password=passwordnode.value;
+    let data={
+        "password":password,
+        "username":username
+    }
+    xhr.send(JSON.stringify(data));
+    xhr.onreadystatechange=function (){
+        if(xhr.readyState===4){
+            if(xhr.status>=200&&xhr.status<300){
+
+            }
+        }
+    }
+}
 </script>
 </body>
 </html>
