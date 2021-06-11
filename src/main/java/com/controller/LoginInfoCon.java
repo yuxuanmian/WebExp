@@ -46,4 +46,17 @@ public class LoginInfoCon {
         }
         return result;
     }
+
+
+    public boolean isLoginSuccess(LoginInfoBean lib){
+        boolean flag=false;
+        List list=getAllUser();
+        for(Object temp:list){
+            LoginInfoBean a=(LoginInfoBean) temp;
+            if(a.equals(lib)){
+                flag=true;
+            }
+        }
+        return flag;
+    }
 }

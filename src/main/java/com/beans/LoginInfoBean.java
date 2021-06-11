@@ -33,4 +33,14 @@ public class LoginInfoBean {
                 ", password='" + password + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        LoginInfoBean temp=(LoginInfoBean) obj;
+        if(this.getPassword().equals(temp.getPassword())&&this.getUsername().equals(temp.getUsername())){
+            return true;
+        }else  {
+            return false;
+        }
+    }
 }
