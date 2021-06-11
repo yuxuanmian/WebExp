@@ -43,7 +43,7 @@ let passwordnode=document.getElementById("password");
 
 document.getElementById("submit_button").onclick=function (){
     let xhr=new XMLHttpRequest();
-    xhr.open("post","" ,true);//---------------------------------------------填servlet的url
+    xhr.open("post","verification" ,true);//---------------------------------------------填servlet的url
     let username=usernamenode.value;
     let password=passwordnode.value;
     let data={//--------------------------------------------------------json结构，左边是参数名
@@ -56,7 +56,7 @@ document.getElementById("submit_button").onclick=function (){
     xhr.onreadystatechange=function (){
         if(xhr.readyState===4){
             if(xhr.status>=200&&xhr.status<300){
-              //缺！后端写完后加上处理函数
+
             }
         }
     }
