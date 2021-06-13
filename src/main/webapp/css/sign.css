@@ -5,10 +5,18 @@ body{
     background-image: url("../thing/背景.jpg");
     margin: 0;
 }
+a{
+    text-decoration: none;
+}
+.table{
+    margin: 0 auto;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
 .div{
     background-color: bisque;
    width: 80%;
-    height:100%;
+    height:130%;
     margin: 0 auto;
 }
 .type{
@@ -19,16 +27,15 @@ body{
     width: 100px;
 }
 #logo{
+    right: 10%;
     height: 200px;
     width: 200px;
     position:absolute;
-    float: left;
-    background-image: url("../thing/diugai.com162322863666714.png");
-    background-size:100% 100%;
 }
+
 #find{
     position: absolute;
-    right: 0;
+   left: 13%;
     top: 50px;
 }
 p{
@@ -41,7 +48,7 @@ p{
     border:1px solid gray;
     font-size: 20px;
 }
-a {
+.a {
     color: #FFF;
     text-decoration: none;
 }
@@ -121,4 +128,8 @@ img {
     90%,100% {
         left:0px;
     }
+}
+.picture{
+    width: 200px;
+    height: 200px;
 }
