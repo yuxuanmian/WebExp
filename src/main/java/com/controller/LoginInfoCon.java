@@ -14,6 +14,8 @@ import java.util.Map;
 
 public class LoginInfoCon {
     DBUtil dbUtil;
+    public static final int USER=1;
+    public static final int ADMINISTRATOR=2;
 
     public LoginInfoCon() {
         dbUtil=new DBUtil();
@@ -48,10 +50,32 @@ public class LoginInfoCon {
         return result;
     }
 
+
+    //获取所有管理员账号
+    public List getAllAdmin(){
+        String sql="select * from administrator";
+        String []params={};
+        List orgin = dbUtil.getResultList(sql, params);
+        List result=new ArrayList();
+        for(Object a:orgin){
+            Map<String, String> a1=(Map)a;
+            LoginInfoBean temp=new LoginInfoBean();
+            temp.setUsername(a1.get("name"));
+            temp.setPassword(a1.get("password"));
+            result.add(temp);
+        }
+        return result;
+    }
+
     //登陆名比较方法
-    public boolean isLoginSuccess(LoginInfoBean lib){
+    public boolean isLoginSuccess(LoginInfoBean lib,int who){
         boolean flag=false;
-        List list=getAllUser();
+        List list=null;
+        if(who==USER){
+            list=getAllUser();
+        }else if(who==ADMINISTRATOR){
+            list=getAllAdmin();
+        }
         for(Object temp:list){
             LoginInfoBean a=(LoginInfoBean) temp;
             if(a.equals(lib)){
