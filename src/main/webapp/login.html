@@ -47,15 +47,25 @@
 <script>
     let usernamenode = document.getElementById("username");
     let passwordnode = document.getElementById("password");
+    let whonode=document.getElementsByName("who");
 
     document.getElementById("submit_button").onclick = function () {
         let xhr = new XMLHttpRequest();
         xhr.open("post", "verification", true);//---------------------------------------------填servlet的url
         let username = usernamenode.value;
         let password = passwordnode.value;
+				let who;
+				for(let a=0;a<whonode.length;a++){
+				    if(whonode[a].checked){
+				        who=whonode[a].value;
+						}
+				}
+
+
         let data = {//--------------------------------------------------------json结构，左边是参数名
             "password": password,
-            "username": username
+            "username": username,
+						"who":who
         }
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");//post一定要设置请求头
         xhr.send("data=" + JSON.stringify(data));

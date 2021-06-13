@@ -28,13 +28,21 @@ public class login_verification1 extends HttpServlet {
         JSONObject obj=JSON.parseObject(request.getParameter("data"));
         String username=obj.getString("username");
         String password=obj.getString("password");
+        String whostr=obj.getString("who");
+
+        int who=0;
+        if(whostr.equals("user")){
+            who=LoginInfoCon.USER;
+        }else if(whostr.equals("administrator")){
+            who=LoginInfoCon.ADMINISTRATOR;
+        }
 
         LoginInfoBean loginInfoBean = new LoginInfoBean();
         loginInfoBean.setPassword(password);
         loginInfoBean.setUsername(username);
 
         LoginInfoCon loginInfoCon = new LoginInfoCon();
-        boolean flag = loginInfoCon.isLoginSuccess(loginInfoBean);
+        boolean flag = loginInfoCon.isLoginSuccess(loginInfoBean,who);
         PrintWriter out = response.getWriter();
 
         if (flag) {
