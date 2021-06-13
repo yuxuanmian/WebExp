@@ -4,18 +4,24 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.beans.LoginInfoBean;
 import com.controller.LoginInfoCon;
+import com.json.LoginState;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet(name = "login",urlPatterns = "/login")
 
 public class login_verification2 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        response.setHeader("Content-Type","application/json;charset=utf-8");//设置响应头，防止preview乱码
+
 
         JSONObject obj= JSON.parseObject(request.getParameter("data"));
         String username=obj.getString("username");
@@ -29,16 +35,18 @@ public class login_verification2 extends HttpServlet {
         boolean flag = loginInfoCon.isLoginSuccess(loginInfoBean);
         PrintWriter out = response.getWriter();
         if(flag){
-            String jsonString = "{state:'数据库中已有该用户'}";
+            String jsonString = JSON.toJSONString(new LoginState("alreadyhas"));;
             out.println(jsonString);
         }
         else{
             if (loginInfoCon.insertNewUser(loginInfoBean)){
-                String jsonStrin="{state:'已写入数据库'}";
+                String jsonStrin=JSON.toJSONString(new LoginState("success"));
+                out.print(jsonStrin);
+            }else{
+                String jsonStrin =JSON.toJSONString(new LoginState("failure"));
                 out.print(jsonStrin);
             }
-            String jsonStrin ="{state:'数据库写入失败'}";
-            out.print(jsonStrin);
+
         }
 
     }

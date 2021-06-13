@@ -56,8 +56,7 @@
       /*用户名失焦*/
       usernamenode.addEventListener("blur", function () {
           if (usernamenode.value.toString().trim() === "") {
-              if(!document.getElementById("usererror"))
-              {
+              if (!document.getElementById("usererror")) {
                   let errormess = document.createElement("span");
                   errormess.innerText = "*用户名不能为空！";
                   errormess.style.color = "red";
@@ -74,7 +73,7 @@
       /*密码失焦*/
       passwordnode.addEventListener("blur", function () {
           if (passwordnode.value.toString().trim() === "") {
-              if(!document.getElementById("passworderror")) {
+              if (!document.getElementById("passworderror")) {
                   let errormess = document.createElement("span");
                   errormess.innerText = "*密码不能为空！";
                   errormess.style.color = "red";
@@ -90,8 +89,7 @@
 
       passwordagainndoe.addEventListener("blur", function () {
           if (passwordagainndoe.value.toString().trim() !== passwordnode.value.toString().trim()) {
-              if(!document.getElementById("passwordagainerror"))
-              {
+              if (!document.getElementById("passwordagainerror")) {
                   let errormess = document.createElement("sapn");
                   errormess.innerText = "*两次密码不同！";
                   errormess.style.color = "red";
@@ -116,13 +114,17 @@
           }
 
 
+          let xhr=new XMLHttpRequest();
+          xhr.open("post", "login");
           xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");//post一定要设置请求头
           xhr.send("data=" + JSON.stringify(data));
-          console.log(JSON.stringify(data));
           xhr.onreadystatechange = function () {
               if (xhr.readyState === 4) {
                   if (xhr.status >= 200 && xhr.status < 300) {
-											//填写返回处理方法
+                      let rs=JSON.parse(xhr.responseText);
+                      if(rs.state==="success"){
+
+											}
                   }
               }
           }

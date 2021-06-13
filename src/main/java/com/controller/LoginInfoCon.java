@@ -67,7 +67,7 @@ public class LoginInfoCon {
         String password=lib.getPassword().trim();
         String sql="insert into user (username, password) VALUES (?,?) ";
         String[] params={username,password};
-        dbUtil.update(sql,params);
-        return true;
+        int a=dbUtil.update(sql,params);
+        return a != 0;
     }
 }
