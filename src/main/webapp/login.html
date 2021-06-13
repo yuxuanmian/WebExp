@@ -9,7 +9,6 @@
 </head>
 
 
-
 <body>
 <audio autoplay="autoplay" controls="controls" loop="loop">
 	<source src="thing/松本文紀%20-%20夜の向日葵.mp3">
@@ -22,13 +21,11 @@
 	<div class="password">
 		<h3>密码</h3>
 		<input type="password" name="password" id="password" placeholder="请输入您的密码！">
-		<span>
-               <!-- 密码或用户名错误-->
-           </span>
+
 	</div>
 	<div id="who">
 		你是：<input type="radio" name="who" value="administrator">管理员
-		<input type="radio" name="who" value="user"	> 用户
+		<input type="radio" name="who" value="user" checked> 用户
 	</div>
 	<div class="button">
 		<button id="submit_button">登录</button>
@@ -40,6 +37,10 @@
 		还没有账号？
 		<a href="create.html">点击注册</a>
 	</div>
+	<br>
+	<span id="error" style="color: red">
+               <!-- 密码或用户名错误-->
+           </span>
 
 </div>
 
@@ -47,25 +48,29 @@
 <script>
     let usernamenode = document.getElementById("username");
     let passwordnode = document.getElementById("password");
-    let whonode=document.getElementsByName("who");
+    let whonode = document.getElementsByName("who");
 
     document.getElementById("submit_button").onclick = function () {
         let xhr = new XMLHttpRequest();
         xhr.open("post", "verification", true);//---------------------------------------------填servlet的url
         let username = usernamenode.value;
         let password = passwordnode.value;
-				let who;
-				for(let a=0;a<whonode.length;a++){
-				    if(whonode[a].checked){
-				        who=whonode[a].value;
-						}
-				}
+        let who;
+        for (let a = 0; a < whonode.length; a++) {
+            if (whonode[a].checked) {
+                who = whonode[a].value;
+            }
+        }
 
+        if(usernamenode.value===""||passwordnode.value===""){
+            alert("请将用户名和密码填写完整！");
+            return;
+        }
 
         let data = {//--------------------------------------------------------json结构，左边是参数名
             "password": password,
             "username": username,
-						"who":who
+            "who": who
         }
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");//post一定要设置请求头
         xhr.send("data=" + JSON.stringify(data));
@@ -73,10 +78,20 @@
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status >= 200 && xhr.status < 300) {
-
+										checkanddispather();
                 }
             }
         }
+
+
+        function checkanddispather(){
+            let code = (JSON.parse(xhr.responseText)).state;
+            if (code === "fail") {
+                document.getElementById("error").innerText = "登录失败！请重试！";
+            } else if (code === "success") {
+                window.location = "sign.html";
+            }
+				}
     }
 </script>
 </body>

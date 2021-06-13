@@ -30,6 +30,7 @@ public class login_verification1 extends HttpServlet {
         String password=obj.getString("password");
         String whostr=obj.getString("who");
 
+
         int who=0;
         if(whostr.equals("user")){
             who=LoginInfoCon.USER;

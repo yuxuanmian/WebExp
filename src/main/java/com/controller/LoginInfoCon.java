@@ -80,6 +80,7 @@ public class LoginInfoCon {
             LoginInfoBean a=(LoginInfoBean) temp;
             if(a.equals(lib)){
                 flag=true;
+                break;
             }
         }
         return flag;
