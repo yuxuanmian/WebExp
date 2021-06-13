@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "Servlet", urlPatterns = "/verification")
 
 
-public class login_verification extends HttpServlet {
+public class login_verification1 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

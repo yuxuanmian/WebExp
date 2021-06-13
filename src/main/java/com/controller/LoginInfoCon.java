@@ -47,7 +47,7 @@ public class LoginInfoCon {
         return result;
     }
 
-
+    //登陆名比较方法
     public boolean isLoginSuccess(LoginInfoBean lib){
         boolean flag=false;
         List list=getAllUser();
@@ -62,11 +62,12 @@ public class LoginInfoCon {
 
 
     //通过LoginInfoBean传参向数据库中写入一条用户数据
-    public void insertNewUser(LoginInfoBean lib){
+    public boolean insertNewUser(LoginInfoBean lib){
         String username=lib.getUsername().trim();
         String password=lib.getPassword().trim();
         String sql="insert into user (username, password) VALUES (?,?) ";
         String[] params={username,password};
         dbUtil.update(sql,params);
+        return true;
     }
 }
