@@ -43,14 +43,108 @@
       let passwordnode = document.getElementById("password");
       let passwordagainndoe = document.getElementById("password1");
 
-      document.getElementById("submit_button").addEventListener("click", function (){
-					ajaxmeth();
-			},false);
+
+      document.getElementById("submit_button").addEventListener("click", function () {
+          if (!checkform()) {
+              alert("请检查您的填写！");
+          } else {
+              ajaxmeth();
+          }
+      }, false);
+
+
+      /*用户名失焦*/
+      usernamenode.addEventListener("blur", function () {
+          if (usernamenode.value.toString().trim() === "") {
+              if(!document.getElementById("usererror"))
+              {
+                  let errormess = document.createElement("span");
+                  errormess.innerText = "*用户名不能为空！";
+                  errormess.style.color = "red";
+                  errormess.id = "usererror";
+                  document.getElementsByClassName("username")[0].appendChild(document.createElement("br"));
+                  document.getElementsByClassName("username")[0].appendChild(errormess);
+              }
+          } else {
+              let node = document.getElementById("usererror");
+              node.parentNode.removeChild(node);
+          }
+      }, false);
+
+      /*密码失焦*/
+      passwordnode.addEventListener("blur", function () {
+          if (passwordnode.value.toString().trim() === "") {
+              if(!document.getElementById("passworderror")) {
+                  let errormess = document.createElement("span");
+                  errormess.innerText = "*密码不能为空！";
+                  errormess.style.color = "red";
+                  errormess.id = "passworderror";
+                  document.getElementsByClassName("password")[0].appendChild(document.createElement("br"));
+                  document.getElementsByClassName("password")[0].appendChild(errormess);
+              }
+          } else {
+              let node = document.getElementById("passworderror");
+              node.parentNode.removeChild(node);
+          }
+      });
+
+      passwordagainndoe.addEventListener("blur", function () {
+          if (passwordagainndoe.value.toString().trim() !== passwordnode.value.toString().trim()) {
+              if(!document.getElementById("passwordagainerror"))
+              {
+                  let errormess = document.createElement("sapn");
+                  errormess.innerText = "*两次密码不同！";
+                  errormess.style.color = "red";
+                  errormess.id = "passwordagainerror";
+                  document.getElementsByClassName("password1")[0].appendChild(document.createElement("br"));
+                  document.getElementsByClassName("password1")[0].appendChild(errormess);
+              }
+          } else {
+              let node = document.getElementById("passwordagainerror");
+              node.parentNode.removeChild(node);
+          }
+      })
 
 
       /*ajax函数集成，在表单验证成功后调用*/
       function ajaxmeth() {
-          alert("ssss");
+          let username = usernamenode.value;//------------------------------------------------------------------json结构
+          let password = passwordnode.value;
+          let data = {
+              "username": username,
+              "password": password
+          }
+
+
+          xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");//post一定要设置请求头
+          xhr.send("data=" + JSON.stringify(data));
+          console.log(JSON.stringify(data));
+          xhr.onreadystatechange = function () {
+              if (xhr.readyState === 4) {
+                  if (xhr.status >= 200 && xhr.status < 300) {
+											//填写返回处理方法
+                  }
+              }
+          }
+      }
+
+      /*验证表单提交*/
+      function checkform() {
+          let flag = true;
+          let username = usernamenode.value;
+          let password = passwordnode.value;
+          let confirmpass = passwordagainndoe.value;
+          if (username.toString().trim() === "" || password.toString().trim() === "") {
+              flag = false;
+          }
+          if (password.toString().trim() !== confirmpass.toString().trim()) {
+              flag = false;
+          }
+          if (passwordagainndoe.value.toString().trim() !== passwordnode.value.toString().trim()) {
+              flag = false;
+          }
+          return flag;
+
       }
 	</script>
 </div>

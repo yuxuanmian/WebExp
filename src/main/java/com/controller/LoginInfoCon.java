@@ -59,4 +59,14 @@ public class LoginInfoCon {
         }
         return flag;
     }
+
+
+    //通过LoginInfoBean传参向数据库中写入一条用户数据
+    public void insertNewUser(LoginInfoBean lib){
+        String username=lib.getUsername().trim();
+        String password=lib.getPassword().trim();
+        String sql="insert into user (username, password) VALUES (?,?) ";
+        String[] params={username,password};
+        dbUtil.update(sql,params);
+    }
 }
