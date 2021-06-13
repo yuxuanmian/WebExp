@@ -1,56 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    <title>注册账号界面</title>
-    <link href="css/create.css" rel="stylesheet" type="text/css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<title>注册账号界面</title>
+	<link href="css/create.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div>
-<audio  autoplay="autoplay" controls="controls" loop="loop">
-    <source src="thing/关山阅海%20-%20菊次郎的夏天%20-%20K.Williams.mp3" >
-</audio>
+	<audio autoplay="autoplay" controls="controls" loop="loop">
+		<source src="thing/关山阅海%20-%20菊次郎的夏天%20-%20K.Williams.mp3">
+	</audio>
 </div>
 <div class="logo">
 </div>
 <div class="container">
-    <form action="" method="post" >
-        <div class="username">
-            <h3>用户名</h3>
-            <input type="text" name="username" id="username" placeholder="请输入新建的用户名！">
-        </div>
-            <div class="password">
-                <h3>密码</h3>
-                <input type="password" name="password" id="password" minlength="6" maxlength="15" placeholder="请输入6~15位的新密码！">
-            </div>
+	<div class="username">
+		<h3>用户名</h3>
+		<input type="text" name="username" id="username" placeholder="请输入新建的用户名！">
+	</div>
+	<div class="password">
+		<h3>密码</h3>
+		<input type="password" name="password" id="password" minlength="6" maxlength="15" placeholder="请输入6~15位的新密码！">
+	</div>
 
-        <div class="password1">
-            <h3>确认密码</h3>
-            <input type="password" name="password1" id="password1" minlength="6" maxlength="15" placeholder="请确认密码！">
-        <span>
+	<div class="password1">
+		<h3>确认密码</h3>
+		<input type="password" name="password1" id="password1" minlength="6" maxlength="15" placeholder="请确认密码！">
+		<span>
 <!-- 密码前后不一致-->
         </span>
-        </div>
-        <div class="button">
-            <button type="submit" id="submit_button">注册</button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="reset" id="reset">重新输入</button>
-        </div>
-    </form>
+	</div>
+	<div class="button">
+		<button id="submit_button">注册</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button type="reset" id="reset">重新输入</button>
+	</div>
+
+
+	<script>
+      let usernamenode = document.getElementById("username");
+      let passwordnode = document.getElementById("password");
+      let passwordagainndoe = document.getElementById("password1");
+
+      document.getElementById("submit_button").addEventListener("click", function (){
+					ajaxmeth();
+			},false);
+
+
+      /*ajax函数集成，在表单验证成功后调用*/
+      function ajaxmeth() {
+          alert("ssss");
+      }
+	</script>
 </div>
 </body>
 
 
-
-
-
-
-
-
-<script>
-
-</script>
 </html>
 <!--
 标签如下
