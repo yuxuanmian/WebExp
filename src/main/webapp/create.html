@@ -123,12 +123,18 @@
                   if (xhr.status >= 200 && xhr.status < 300) {
                       let rs=JSON.parse(xhr.responseText);
                       if(rs.state==="success"){
-
+                          window.location="sign.html";
+											}else if(rs.state==="failure"){
+                          alert("创建失败！请重试或联系管理员！");
+                          location.reload();
+											}else if (rs.state==="alreadyhas"){
+                          alert("已经存在相同的用户名，请换一个再试吧！");
 											}
                   }
               }
           }
       }
+
 
       /*验证表单提交*/
       function checkform() {

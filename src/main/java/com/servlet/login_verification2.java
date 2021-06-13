@@ -32,7 +32,7 @@ public class login_verification2 extends HttpServlet {
         loginInfoBean.setUsername(username);
 
         LoginInfoCon loginInfoCon = new LoginInfoCon();
-        boolean flag = loginInfoCon.isLoginSuccess(loginInfoBean);
+        boolean flag = loginInfoCon.isAccountRepeat(loginInfoBean);
         PrintWriter out = response.getWriter();
         if(flag){
             String jsonString = JSON.toJSONString(new LoginState("alreadyhas"));;
