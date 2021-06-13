@@ -1,12 +1,14 @@
-body {
-    font-size: 10px;
+html,body{
+    height: 100%;
+}
+body{
+    margin: 0;
+}
+.div{
     background-color: bisque;
-}
-#table2{
-    background-image: url("../thing/03_03.jpg");
-}
-#table{
-    border: dashed white;
+   width: 80%;
+    height:100%;
+    margin: 0 auto;
 }
 .type{
     color: black;
@@ -45,8 +47,8 @@ a {
 #banner {
     box-sizing: border-box;
     padding: 0;
-    width: 320px;
-    height: 160px;
+    width: 500px;
+    height: 300px;
     margin: 5px auto;
     overflow: hidden;
     position: relative;
@@ -56,7 +58,7 @@ a {
     position: absolute;
     left: 0;
     top: 0;
-    width: 3200px;
+    width: 5000px;
     height: 100%;
     box-sizing: border-box;
     padding: 0;
@@ -69,8 +71,8 @@ li {
     padding: 0;
     margin: 0;
     list-style: none;
-    width: 320px;
-    height: 160px;
+    width: 500px;
+    height: 300px;
     float: left;
 }
 h2 {
@@ -88,32 +90,32 @@ img {
 }
 @keyframes move {
     0%,6% {
-        left:-2880px;
+        left:-4500px;
     }
     10%,16% {
-        left:-2560px;
+        left:-4000px;
     }
 
     20%,26% {
-        left:-2240px;
+        left:-3500px;
     }
     30%,36% {
-        left:-1920px;
+        left:-3000px;
     }
     40%,46% {
-        left:-1600px;
+        left:-2500px;
     }
     50%,56% {
-        left:-1280px;
+        left:-2000px;
     }
     60%,66% {
-        left:-960px;
+        left:-1500px;
     }
     70%,76% {
-        left:-640px;
+        left:-1000px;
     }
     80%,86% {
-        left:-320px;
+        left:-500px;
     }
     90%,100% {
         left:0px;
