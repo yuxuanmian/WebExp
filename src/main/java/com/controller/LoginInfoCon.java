@@ -4,6 +4,7 @@ import com.beans.LoginInfoBean;
 import com.util.DBUtil;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -69,5 +70,19 @@ public class LoginInfoCon {
         String[] params={username,password};
         int a=dbUtil.update(sql,params);
         return a != 0;
+    }
+
+
+    //查找数据库中是否存在重复的账号名,存在返回true；
+    public boolean isAccountRepeat(LoginInfoBean lib){
+        String acc=lib.getUsername();
+        String sql="select username from user";
+        List li=dbUtil.getResultList(sql,new String[]{});
+        for(Object b:li){
+            HashMap<String,String>a=(HashMap<String, String>) b;
+            if(acc.trim().equals(a.get("username").trim()))
+                return true;
+        }
+        return false;
     }
 }

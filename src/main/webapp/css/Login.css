@@ -3,10 +3,11 @@ div.container{
 
     background-color: transparent;
     border-radius: 20px;
-    width: 300px;
+    width: 600px;
     height: 350px;
-    margin: 100px 40%;
+    text-align: center ;
 
+    margin:0 auto;
 }
 
 div.name{
@@ -16,7 +17,7 @@ div.name{
 }
 
 div.username {
-    margin-left: 10px;
+    display: inline;
     height: 100px;
 }
 div.password{
@@ -25,11 +26,11 @@ div.password{
 }
 div.button{
     height: 50px;
-    margin-left: 30%;
+
+    display: inline;
 }
 div.create{
-
-    margin-left: 40% ;
+    display: inline;
 }
 
 body::before{
@@ -68,4 +69,12 @@ button{
     border: 1px solid gray;
     border-radius: 5px;
     font-size: x-large;
+}
+
+#submit_button{
+    width: 110px;
+}
+
+#who{
+
 }

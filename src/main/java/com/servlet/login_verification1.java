@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.beans.LoginInfoBean;
 import com.controller.LoginInfoCon;
+import com.json.LoginState;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -37,12 +38,12 @@ public class login_verification1 extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         if (flag) {
-            String jsonString = "{state:'success'}";
+            String jsonString =JSON.toJSONString(new LoginState("success"));
             out.println(jsonString);
             HttpSession session = request.getSession();
             session.setAttribute("user", loginInfoBean);
         } else {
-            String jsonString = "{state:'fail'}";
+            String jsonString = JSON.toJSONString(new LoginState("fail"));
             out.println(jsonString);
         }
 
