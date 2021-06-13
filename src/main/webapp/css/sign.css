@@ -2,6 +2,7 @@ html,body{
     height: 100%;
 }
 body{
+    background-image: url("../thing/背景.jpg");
     margin: 0;
 }
 .div{
