@@ -1,66 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    <title>用户登录界面</title>
-    <link href="css/Login.css" rel="stylesheet" type="text/css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<title>用户登录界面</title>
+	<link href="css/Login.css" rel="stylesheet" type="text/css">
 
 </head>
+
+
+
 <body>
-<audio  autoplay="autoplay" controls="controls" loop="loop">
-    <source src="thing/松本文紀%20-%20夜の向日葵.mp3" >
+<audio autoplay="autoplay" controls="controls" loop="loop">
+	<source src="thing/松本文紀%20-%20夜の向日葵.mp3">
 </audio>
 <div class="container">
-       <div class="username">
-           <h3>账户名</h3>
-        <input type="text" name="username" id="username" placeholder="请输入您的用户名！">
-       </div>
-       <div class="password">
-           <h3>密码</h3>
-           <input type="password" name="password" id="password" placeholder="请输入您的密码！">
-           <span>
+	<div class="username">
+		<h3>账户名</h3>
+		<input type="text" name="username" id="username" placeholder="请输入您的用户名！">
+	</div>
+	<div class="password">
+		<h3>密码</h3>
+		<input type="password" name="password" id="password" placeholder="请输入您的密码！">
+		<span>
                <!-- 密码或用户名错误-->
            </span>
-       </div>
-       <div class="button">
-           <button id="submit_button">登录</button>
-           &nbsp;
-           <button type="reset" class="reset">重新输入</button>
-       </div>
-       <div class="create">
-           还没有账号？
-           <a href="create.html">点击注册</a>
-       </div>
-<div></div>
+	</div>
+	<div id="who">
+		你是：<input type="radio" name="who" value="administrator">管理员
+		<input type="radio" name="who" value="user"	> 用户
+	</div>
+	<div class="button">
+		<button id="submit_button">登录</button>
+		&nbsp;
+		<button type="reset" class="reset">重新输入</button>
+	</div>
+	<br>
+	<div class="create">
+		还没有账号？
+		<a href="create.html">点击注册</a>
+	</div>
+
 </div>
 
 
-
 <script>
-let usernamenode=document.getElementById("username");
-let passwordnode=document.getElementById("password");
+    let usernamenode = document.getElementById("username");
+    let passwordnode = document.getElementById("password");
 
-document.getElementById("submit_button").onclick=function (){
-    let xhr=new XMLHttpRequest();
-    xhr.open("post","verification" ,true);//---------------------------------------------填servlet的url
-    let username=usernamenode.value;
-    let password=passwordnode.value;
-    let data={//--------------------------------------------------------json结构，左边是参数名
-        "password":password,
-        "username":username
-    }
-    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");//post一定要设置请求头
-    xhr.send("data="+JSON.stringify(data));
-    console.log(JSON.stringify(data));
-    xhr.onreadystatechange=function (){
-        if(xhr.readyState===4){
-            if(xhr.status>=200&&xhr.status<300){
+    document.getElementById("submit_button").onclick = function () {
+        let xhr = new XMLHttpRequest();
+        xhr.open("post", "verification", true);//---------------------------------------------填servlet的url
+        let username = usernamenode.value;
+        let password = passwordnode.value;
+        let data = {//--------------------------------------------------------json结构，左边是参数名
+            "password": password,
+            "username": username
+        }
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");//post一定要设置请求头
+        xhr.send("data=" + JSON.stringify(data));
+        console.log(JSON.stringify(data));
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
 
+                }
             }
         }
     }
-}
 </script>
 </body>
 </html>
