@@ -1,0 +1,121 @@
+body {
+    font-size: 10px;
+    background-color: bisque;
+}
+#table2{
+    background-image: url("../thing/03_03.jpg");
+}
+#table{
+    border: dashed white;
+}
+.type{
+    color: black;
+}
+.back{
+    height: 100px;
+    width: 100px;
+}
+#logo{
+    height: 200px;
+    width: 200px;
+    position:absolute;
+    float: left;
+    background-image: url("../thing/diugai.com162322863666714.png");
+    background-size:100% 100%;
+}
+#find{
+    position: absolute;
+    right: 0;
+    top: 50px;
+}
+p{
+
+    font-size: large;
+}
+#search{
+    background:rgba(45,45,45,0.15);
+    border-radius: 5px;
+    border:1px solid gray;
+    font-size: 20px;
+}
+a {
+    color: #FFF;
+    text-decoration: none;
+}
+#banner {
+    box-sizing: border-box;
+    padding: 0;
+    width: 320px;
+    height: 160px;
+    margin: 5px auto;
+    overflow: hidden;
+    position: relative;
+}
+#list {
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3200px;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    animation: 30s move infinite;
+
+}
+li {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 320px;
+    height: 160px;
+    float: left;
+}
+h2 {
+    position: relative;
+    top: -3em;
+    width:100%;
+    text-align: center;
+}
+img {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+@keyframes move {
+    0%,6% {
+        left:-2880px;
+    }
+    10%,16% {
+        left:-2560px;
+    }
+
+    20%,26% {
+        left:-2240px;
+    }
+    30%,36% {
+        left:-1920px;
+    }
+    40%,46% {
+        left:-1600px;
+    }
+    50%,56% {
+        left:-1280px;
+    }
+    60%,66% {
+        left:-960px;
+    }
+    70%,76% {
+        left:-640px;
+    }
+    80%,86% {
+        left:-320px;
+    }
+    90%,100% {
+        left:0px;
+    }
+}
