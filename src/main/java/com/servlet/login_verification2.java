@@ -35,16 +35,16 @@ public class login_verification2 extends HttpServlet {
         boolean flag = loginInfoCon.isAccountRepeat(loginInfoBean);
         PrintWriter out = response.getWriter();
         if(flag){
-            String jsonString = JSON.toJSONString(new LoginState("alreadyhas"));;
+            String jsonString = JSON.toJSONString(new LoginState("alreadyhas"));
             out.println(jsonString);
         }
         else{
             if (loginInfoCon.insertNewUser(loginInfoBean)){
-                String jsonStrin=JSON.toJSONString(new LoginState("success"));
-                out.print(jsonStrin);
+                String jsonString=JSON.toJSONString(new LoginState("success"));
+                out.print(jsonString);
             }else{
-                String jsonStrin =JSON.toJSONString(new LoginState("failure"));
-                out.print(jsonStrin);
+                String jsonString =JSON.toJSONString(new LoginState("failure"));
+                out.print(jsonString);
             }
 
         }
