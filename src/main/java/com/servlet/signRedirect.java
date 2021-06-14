@@ -1,7 +1,5 @@
 package com.servlet;
 
-import com.controller.BookInfo;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,10 +23,10 @@ public class signRedirect extends HttpServlet {
         * 2.检查乱码
         * 3.往数据库中查询的参数一定要trim()!!!!!!!!!
         * */
-        String str=request.getParameter("bookname");
+       /* String str=request.getParameter("bookname");
         BookInfo book=new BookInfo();
         Object bok= book.getBookBeanByName(str.trim());
-        request.setAttribute("book",bok);
+        request.setAttribute("book",bok);*/
         request.getRequestDispatcher("detail.html").forward(request,response);
     }
 

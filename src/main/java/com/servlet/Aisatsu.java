@@ -1,6 +1,7 @@
 package com.servlet;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSON;
+import com.beans.LoginInfoBean;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,9 +22,9 @@ public class Aisatsu extends HttpServlet {
         * */
         PrintWriter out= response.getWriter();
         HttpSession session = request.getSession();
-        JSONObject str= (JSONObject) session.getAttribute("user");
+        LoginInfoBean lib=(LoginInfoBean) (session.getAttribute("user"));
+        String str= JSON.toJSONString(lib);
         out.print(str);
-        request.getRequestDispatcher("sign.html").forward(request,response);
 
 
 
