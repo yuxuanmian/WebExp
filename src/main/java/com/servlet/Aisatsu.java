@@ -1,9 +1,15 @@
 package com.servlet;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import com.alibaba.fastjson.JSONObject;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "Aisatsu", value = "/Aisatsu")
 public class Aisatsu extends HttpServlet {
@@ -13,6 +19,14 @@ public class Aisatsu extends HttpServlet {
         * 这个servlet会接受sign传来的一个空的ajax请求，这个请求时我在页面创建的时候发起的
         * 需要从session对象中取出用户名，然后以json格式返回给网页
         * */
+        PrintWriter out= response.getWriter();
+        HttpSession session = request.getSession();
+        JSONObject str= (JSONObject) session.getAttribute("user");
+        out.print(str);
+        request.getRequestDispatcher("sign.html").forward(request,response);
+
+
+
     }
 
     @Override
