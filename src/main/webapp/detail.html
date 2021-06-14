@@ -100,5 +100,27 @@
     </div>
 </div>
 
+
+<script>
+    window.onload=function (){
+        let xhr=new XMLHttpRequest();
+        xhr.open("get","ShowBookDetail");
+        xhr.send();
+
+
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    console.log(xhr.response);
+                }
+            }
+        }
+    }
+</script>
+
 </body>
 </html>
+
+
+<!--还未调试--->
