@@ -1,5 +1,6 @@
 package com.servlet;
 
+import com.beans.BookBean;
 import com.controller.BookInfo;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

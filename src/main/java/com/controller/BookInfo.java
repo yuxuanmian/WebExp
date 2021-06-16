@@ -64,7 +64,10 @@ public class BookInfo {
         String sql="select * from book where bname=?";
         List rslist=ListBookByParam(sql,new String[]{name});
         List<BookBean> li=getQueResult(rslist);
-        BookBean bb=li.get(0);
+        BookBean bb=null;
+        if(li.size()!=0){
+            bb=li.get(0);
+        }
         return bb;
     }
 

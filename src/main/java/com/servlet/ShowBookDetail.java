@@ -1,6 +1,7 @@
 package com.servlet;
 
 import com.alibaba.fastjson.JSON;
+import com.beans.BookBean;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,14 +22,14 @@ public class ShowBookDetail extends HttpServlet {
 * 注意null、乱码、trim（），返回前一定要验证是否为空，
 * */
         PrintWriter out=response.getWriter();
-        String str= (String) request.getAttribute("book");
-        if(str.length()<=0){
+        BookBean str= (BookBean) request.getAttribute("book");
+        if(str==null){
             //填返回参数
             out.print("失败");
         }
         else {
             String jsonString = JSON.toJSONString(str);
-            out.print(jsonString.trim());
+            out.print(jsonString);
         }
     }
 
