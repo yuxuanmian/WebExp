@@ -110,4 +110,15 @@ public class LoginInfoCon {
         }
         return false;
     }
+    //账号作为id查询用户姓名
+    public String getusername(String username){
+        String sql="select username from userinfo where id=?";
+        List rslist= dbUtil.getResultList(sql, new String[]{username});
+        String str_username=null;
+        for (int i=0;i<rslist.size();i++)
+        {
+            str_username+=rslist.get(i);
+        }
+        return str_username;
+    }
 }

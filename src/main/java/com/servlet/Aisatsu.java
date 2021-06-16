@@ -2,6 +2,7 @@ package com.servlet;
 
 import com.alibaba.fastjson.JSON;
 import com.beans.LoginInfoBean;
+import com.controller.LoginInfoCon;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,10 +22,16 @@ public class Aisatsu extends HttpServlet {
         * 需要从session对象中取出用户名，然后以json格式返回给网页
         * */
         PrintWriter out= response.getWriter();
+        //获取session
         HttpSession session = request.getSession();
         LoginInfoBean lib=(LoginInfoBean) (session.getAttribute("user"));
-        String str= JSON.toJSONString(lib);
-        out.print(str);
+        //获取用户名
+        String username= lib.getUsername();
+        LoginInfoCon loginInfoCon=new LoginInfoCon();
+        String  out_str=loginInfoCon.getusername(username);
+        //将传回的用户名转换成json字符串发送
+        String Jsonstr= JSON.toJSONString(out_str);
+        out.print(Jsonstr);
 
 
 

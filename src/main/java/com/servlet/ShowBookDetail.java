@@ -24,6 +24,7 @@ public class ShowBookDetail extends HttpServlet {
         String str= (String) request.getAttribute("book");
         if(str.length()<=0){
             //填返回参数
+            out.print("失败");
         }
         else {
             String jsonString = JSON.toJSONString(str);
