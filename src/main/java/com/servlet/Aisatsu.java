@@ -27,12 +27,12 @@ public class Aisatsu extends HttpServlet {
         LoginInfoBean lib=(LoginInfoBean) (session.getAttribute("user"));
         //获取用户名
         String username= lib.getUsername();
-        LoginInfoCon loginInfoCon=new LoginInfoCon();
-        String  out_str=loginInfoCon.getusername(username);
+        /*LoginInfoCon loginInfoCon=new LoginInfoCon();
+        String  out_str=loginInfoCon.getusername(username);*/
         //将传回的用户名转换成json字符串发送
-        String Jsonstr= JSON.toJSONString(out_str);
+        String Jsonstr= JSON.toJSONString(lib.getUsername().trim());
+        System.out.println(Jsonstr);
         out.print(Jsonstr);
-
 
 
     }

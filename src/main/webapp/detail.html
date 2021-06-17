@@ -82,10 +82,10 @@
                 <td><span>书籍名称</span></td>
                 <td><span>作者</span></td>
                 <td><span>价格</span></td>
-                <td><span>出版时期</span></td>
+                <td><span>出版社</span></td>
             </tr>
             <tr align="center">
-                <td id="bookname"></td><td id="author"></td><td id="price"></td><td id="time"></td>
+                <td id="bookname"></td><td id="author"></td><td id="price"></td><td id="publisher"></td>
             </tr>
             <tr align="center">
                 <td><span>详细介绍</span></td><td id="message" colspan="4"></td>
@@ -112,10 +112,20 @@
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status >= 200 && xhr.status < 300) {
-                    console.log(xhr.response);
+                    let result=JSON.parse(xhr.response);
+                    fillTheBlank(result);
                 }
             }
         }
+    }
+
+    function fillTheBlank(res){
+        document.getElementById("author").innerText=res.bauthor;
+        document.getElementById("price").innerText=res.bprice;
+        document.getElementById("bookname").innerText=res.bname;
+        document.getElementById("publisher").innerText=res.bpublisher;
+        document.getElementById("photo").innerHTML="<img src='"+res.imgurl+"' alt='书籍图片'>"
+        document.getElementById("message").innerHTML="<p>"+res.introduction+"</p>";
     }
 </script>
 
