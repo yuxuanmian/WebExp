@@ -43,5 +43,31 @@
   </div>
 </div>
 
+
+
+
+<script>
+  document.getElementById("submit").addEventListener("click", function (){
+    let message=document.getElementById("search").value;
+    let xhr=new XMLHttpRequest();
+    xhr.open("get","Search?keyword="+message.trim());
+    xhr.send();
+
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          if(xhr.responseText!==""){
+            aisatsu();
+          }
+        }
+      }
+    }
+  })
+
+
+
+
+</script>
 </body>
 </html>

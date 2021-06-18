@@ -31,12 +31,12 @@ public class BookInfo {
 
 
     //将查询得到的list<Map>转换为list<BookBean>
-    private List<BookBean> getQueResult(List rsList){
+    private List<BookBean> getQueResult(List rsList) {
         List<BookBean> li = new ArrayList<>();
         for (Object tempp : rsList) {
             HashMap<String, String> map = (HashMap<String, String>) tempp;
             BookBean bb = new BookBean();
-            try{
+            try {
                 bb.setNumber(map.get("number").trim());
                 bb.setBname(map.get("bname").trim());
                 bb.setBauthor(map.get("bauthor").trim());
@@ -45,7 +45,7 @@ public class BookInfo {
                 bb.setImgurl(map.get("imgurl").trim());
                 bb.setIntroduction(map.get("introduction").trim());
                 li.add(bb);
-            }catch (NullPointerException e){
+            } catch (NullPointerException e) {
                 e.printStackTrace();
             }
         }
@@ -58,17 +58,27 @@ public class BookInfo {
     }
 
 
-
     //按照名字查找唯一一本书
-    public BookBean getBookBeanByName(String name){
-        String sql="select * from book where bname=?";
-        List rslist=ListBookByParam(sql,new String[]{name});
-        List<BookBean> li=getQueResult(rslist);
-        BookBean bb=null;
-        if(li.size()!=0){
-            bb=li.get(0);
+    public BookBean getBookBeanByName(String name) {
+        String sql = "select * from book where bname=?";
+        List rslist = ListBookByParam(sql, new String[]{name});
+        List<BookBean> li = getQueResult(rslist);
+        BookBean bb = null;
+        if (li.size() != 0) {
+            bb = li.get(0);
         }
         return bb;
+    }
+
+
+    //按关键字查找图书列表
+    public List<BookBean> getBookBeansBySearch(String param) {
+        String sql = "select * from book where bname like ? or bauthor like ? or bpublisher like ?";
+        List<BookBean> li;
+        String para="%"+param+"%";
+        List orgResList = ListBookByParam(sql, new String[]{para,para,para});
+        li = getQueResult(orgResList);
+        return li;
     }
 
 
