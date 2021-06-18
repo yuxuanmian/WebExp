@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户上传界面</title>
+    <link href="css/sign.css" rel="stylesheet" type="text/css">
+    <style>
+        input{
+            background: rgba(45,45,45,0.15);
+            border-radius: 5px;
+            border: 1px solid gray;
+            font-size: 20px;
+        }
+        .bookmessage{
+            height: 90px;
+        }
+#headtype{
+    position: absolute;
+    width: 300px;
+    top: 50px;
+    left: 40%;
+}
+#message{
+    height: 100px;
+   left: 40%;
+    top: 50px;
+    position: absolute;
+}
+#headmessage{
+    right: 0px;
+}
+    </style>
+</head>
+<body>
+<div class="div">
+    <div id="headtype">
+    <h2>欢迎提供你想要上交的图书</h2>
+    </div>
+    <div id="headmessage">
+        <h5>请在下方输入你上交图书的信息</h5>
+    </div>
+    <div id="message">
+        <div class="bookmessage">
+        <h3>书名</h3>
+        <input type="text" name="bookname" id="bookname" placeholder="请输入你提交的书名">
+    </div>
+    <div class="bookmessage">
+        <h3>作者</h3>
+        <input type="text" name="author" id="author" placeholder="请输入你提交的作者名">
+    </div>
+    <div class="bookmessage">
+        <h3>价格</h3>
+        <input type="text" name="price" id="price" placeholder="请输入你提交的价格">
+    </div>
+    <div class="bookmessage">
+        <h3>出版日期</h3>
+        <input type="text" name="time" id="time" placeholder="请输入你提交的出版日期">
+    </div>
+    </div>
+</div>
+
+</body>
+</html>

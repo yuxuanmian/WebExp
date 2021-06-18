@@ -4,6 +4,7 @@ html,body{
 body{
     background-image: url("../thing/背景.jpg");
     margin: 0;
+width: 100%;
 }
 a{
     text-decoration: none;
@@ -14,10 +15,12 @@ a{
     border-radius: 5px;
 }
 .div{
+    position:relative;/*相对定位*/
     background-color: bisque;
-   width: 80%;
+   width: 1300px;
     height:130%;
     margin: 0 auto;
+    overflow: hidden;
 }
 .type{
     color: black;
@@ -35,7 +38,7 @@ a{
 
 #find{
     position: absolute;
-   left: 13%;
+   left: 5%;
     top: 50px;
 }
 p{
