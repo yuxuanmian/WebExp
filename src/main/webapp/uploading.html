@@ -25,9 +25,16 @@
    left: 40%;
     top: 50px;
     position: absolute;
+    bo
 }
 #headmessage{
-    right: 0px;
+    position: absolute;
+    left: 20%;
+}
+#box{
+    position: absolute;
+    height: 300px;
+    width: 300px;
 }
     </style>
 </head>
@@ -37,9 +44,9 @@
     <h2>欢迎提供你想要上交的图书</h2>
     </div>
     <div id="headmessage">
-        <h5>请在下方输入你上交图书的信息</h5>
+        <h5>------请在下方输入你上交图书的信息</h5>
     </div>
-    <div id="message">
+    <div id="message"> 
         <div class="bookmessage">
         <h3>书名</h3>
         <input type="text" name="bookname" id="bookname" placeholder="请输入你提交的书名">
@@ -56,6 +63,11 @@
         <h3>出版日期</h3>
         <input type="text" name="time" id="time" placeholder="请输入你提交的出版日期">
     </div>
+            <div class="button">
+                <button id="submit_button">登录</button>
+                &nbsp;
+                <button type="reset" class="reset">重新输入</button>
+            </div>
     </div>
 </div>
 
