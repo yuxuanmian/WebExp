@@ -5,6 +5,16 @@
     <title>书籍审核</title>
     <link href="css/sign.css" rel="stylesheet" type="text/css">
     <style>
+        .td1{
+            width: 18%;
+        }
+        .td2{
+            width: 10%;
+        }
+        .td3{
+            width: 18%;
+            height: 15%;
+        }
         .div{
             position:relative;
             background-color: bisque;
@@ -14,7 +24,7 @@
             overflow: hidden;
         }
         .font-size{
-            font-family: Calibri;
+            font-family: Calibri,serif;
             font-size: 25px;
         }
         .find{
@@ -28,6 +38,9 @@
             right: 0;
             height: 200px;
             width: 200px;
+        }
+        #photo{
+            width: 268px;
         }
         #div1{
             width: 100%;
@@ -78,22 +91,22 @@
         <button id="submit">搜索</button>
     </div>
     <div id="div1" >
-        <table  border="3px" width="1000px" bgcolor="#faebd7" >
+        <table  border="3px" bgcolor="#faebd7" >
             <caption><span id="span">审核书籍详细</span></caption>
             <tr height="100px" align="center" >
-                <td rowspan="3"  id="photo" height="345" width="268"><!--<img src="picture/银河铁道之夜.jpg">--></td>
-                <td><span class="font-size">书籍名称</span></td>
-                <td><span class="font-size">作者</span></td>
-                <td><span class="font-size">价格</span></td>
-                <td><span class="font-size"> 出版时期</span></td>
-                <td><span class="font-size">上传用户</span></td>
+                <td rowspan="3"  id="photo" height="345"><!--<img src="picture/银河铁道之夜.jpg">--></td>
+                <td class="td1"><span class="font-size">书籍名称</span></td>
+                <td class="td2"><span class="font-size">作者</span></td>
+                <td class="td2"><span class="font-size">价格</span></td>
+                <td class="td1"><span class="font-size"> 出版时期</span></td>
+                <td class="td1"><span class="font-size">上传用户</span></td>
             </tr>
             <tr align="center">
-                <td id="bookname"></td>
-                <td id="author"></td>
-                <td id="price"></td>
-                <td id="time"></td>
-                <td id="username"></td>
+                <td id="bookname" class="td3"></td>
+                <td id="author" class="td4"></td>
+                <td id="price" class="td4"></td>
+                <td id="time" class="td3"></td>
+                <td id="username" class="td3"></td>
             </tr>
             <tr align="center">
                 <td><span  class="font-size">详细介绍</span></td><td id="message" colspan="5"></td>
