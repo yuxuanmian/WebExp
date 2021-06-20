@@ -37,7 +37,7 @@
     <input type="text" name="search" id="search" placeholder="有感兴趣的书吗?">
     <button id="submit">搜索</button>
   </div>
-  <div>
+  <div id="result">
 
 
   </div>
@@ -58,10 +58,27 @@
       if (xhr.readyState === 4) {
         if (xhr.status >= 200 && xhr.status < 300) {
           if(xhr.responseText!==""){
-            aisatsu();
+            itera(xhr.response);
           }
         }
       }
+    }
+
+
+    function itera(res){
+      let result=JSON.parse(res);
+      let divstr="<thead><tr><td>书名</td><td>作者</td><td>出版社</td></tr></thead>";
+      for(let i=0;i<result.length;i++){
+        divstr+="<tr>";
+        divstr+="<td>"+result[i].bname+"</td>";
+        divstr+="<td>"+result[i].bauthor+"</td>";
+        divstr+="<td>"+result[i].bpublisher+"</td>";
+        divstr+="</tr>";
+      }
+      let a=document.createElement("table");
+      a.id="resulttable";//-------------------------------------------id
+      a.innerHTML=divstr;
+      document.getElementById("result").appendChild(a);
     }
   })
 
