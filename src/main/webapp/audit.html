@@ -98,14 +98,14 @@
                 <td class="td1"><span class="font-size">书籍名称</span></td>
                 <td class="td2"><span class="font-size">作者</span></td>
                 <td class="td2"><span class="font-size">价格</span></td>
-                <td class="td1"><span class="font-size"> 出版时期</span></td>
+                <td class="td1"><span class="font-size"> 出版社</span></td>
                 <td class="td1"><span class="font-size">上传用户</span></td>
             </tr>
             <tr align="center">
                 <td id="bookname" class="td3"></td>
                 <td id="author" class="td4"></td>
                 <td id="price" class="td4"></td>
-                <td id="time" class="td3"></td>
+                <td id="publisher" class="td3"></td>
                 <td id="username" class="td3"></td>
             </tr>
             <tr align="center">
@@ -121,5 +121,32 @@
     </div>
 </div>
 
+
+<script>
+window.onload=function (){
+    let xhr=new XMLHttpRequest();
+    xhr.open("get","AuditGetBook");
+    xhr.send();
+    xhr.onreadystatechange=function (){
+        if(xhr.readyState===4){
+            if(xhr.status===200){
+                doAjax(xhr.response);
+            }
+        }
+    }
+
+    function doAjax(res){
+        let result=JSON.parse(res);
+        document.getElementById("bookname").innerText=result.bname;
+        document.getElementById("author").innerText=result.bauthor;
+        document.getElementById("price").innerText=result.bprice;
+        document.getElementById("publisher").innerText=result.bpublisher;
+        document.getElementById("username").innerText=result.uploader;
+        document.getElementById("message").innerText=result.introduction;
+        document.getElementById("photo").innerHTML="<img alt='图' src='"+result.imgurl+"'>"
+    }
+}
+
+</script>
 </body>
 </html>

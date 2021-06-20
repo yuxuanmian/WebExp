@@ -82,4 +82,13 @@ public class BookInfo {
     }
 
 
+    public void insertBookInfo(BookBean bb){
+        String sql="insert into book(number, bname, bauthor, bpublisher, bprice,imgurl,introduction) values " +
+                "(?,?,?,?,?,?,?)";
+        String[]params={bb.getNumber(),bb.getBname(),bb.getBauthor(),bb.getBpublisher(),String.valueOf(bb.getBprice())
+                , bb.getImgurl(),bb.getIntroduction()};
+        dbUtil.update(sql,params);
+    }
+
+
 }
