@@ -5,6 +5,16 @@
     <title>书籍详细界面</title>
     <link href="css/sign.css" rel="stylesheet" type="text/css">
     <style>
+        .td1{
+            width: 18%;
+        }
+        .td2{
+            width: 10%;
+        }
+        .td3{
+            width: 18%;
+            height: 15%;
+        }
         .div{
             background-color: bisque;
             width: 80%;
@@ -31,6 +41,7 @@
             height: 60%;
             position:absolute;
             top: 150px;
+            left: 10%;
         }
         #buyit{
             position:absolute;
@@ -58,16 +69,18 @@
 </head>
 <body>
 <div class="div">
-    <table width="300px" id="table">
-        <tr height="100px">
-            <td><a href="login.html"><img src="thing/ing_16.jpg">重新登录</a> </td>
-            <td><a href="create.html"><img src="thing/ing_09.jpg">注册账号</a> </td>
-            <td><a href="worker.html"><img src="thing/ing_20.jpg">关于我们</a> </td>
+    <table id="table" border="2" height="10px">
+        <tr style="text-align: center ">
+            <td height="10px"><a href="login.html"><h3>重新登录</h3></a> </td>
+            <td><a href="create.html"><h3>注册账号</h3></a> </td>
+            <td><a href="uploading.html"><h3>提交图书</h3></a> </td>
+            <td><a href="sign.html.html"><h3>主界面</h3></a> </td>
+            <td><a href="searchbook.html.html"><h3>搜寻界面</h3></a> </td>
         </tr>
     </table>
+<div id="all">
     <div class="logo">
         <img src="thing/diugai.com162322863666714.png">
-        <a  href="worker.html"> <h3>->关于我们</h3></a>
     </div>
     <div class="find">
         <p>亲爱的用户，欢迎！</p>
@@ -79,10 +92,10 @@
             <caption><span id="span">书籍详细</span></caption>
             <tr height="100px" align="center" >
                 <td rowspan="3"  id="photo" height="345" width="268"></td>
-                <td><span>书籍名称</span></td>
-                <td><span>作者</span></td>
-                <td><span>价格</span></td>
-                <td><span>出版社</span></td>
+                <td class="id1"><span>书籍名称</span></td>
+                <td class="id2"><span>作者</span></td>
+                <td class="id2"><span>价格</span></td>
+                <td class="id1"><span>出版社</span></td>
             </tr>
             <tr align="center">
                 <td id="bookname"></td><td id="author"></td><td id="price"></td><td id="publisher"></td>
@@ -98,6 +111,7 @@
             <button type="button" id="borrow">借阅</button>
         </div>
     </div>
+</div>
 </div>
 
 

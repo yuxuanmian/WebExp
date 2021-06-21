@@ -7,7 +7,7 @@ div.container{
     height: 350px;
     text-align: center ;
 
-    margin:0 auto;
+    margin:10% auto;
 }
 
 div.name{
@@ -33,7 +33,7 @@ div.create{
     display: inline;
 }
 
-body::before{
+body::before{/*伪类*/
     content:'';
     position:absolute;
     top:0;
@@ -43,7 +43,7 @@ body::before{
     background:transparent url(../thing/海.png) center center no-repeat;
     filter:blur(5px);
     z-index:-1;
-    background-size:cover;
+    background-size:cover;/*把背景图片放大到适合元素容器的尺寸，图片比例不变*/
 
 }
 
