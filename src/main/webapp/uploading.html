@@ -96,11 +96,15 @@
         <input type="text" name="price" id="price" placeholder="请输入你提交的价格">
     </div>
     <div class="bookmessage">
-        <h3>出版日期</h3>
-        <input type="text" name="time" id="time" placeholder="请输入你提交的出版日期">
+        <h3>出版社</h3>
+        <input type="text" name="time" id="publisher" placeholder="请输入你提交的出版社">
     </div>
+        <div class="bookmessage">
+            <h3>图片</h3>
+            <input type="file" name="time" id="photo" placeholder="请提交照片">
+        </div>
             <div class="button">
-                <button id="submit_button">登录</button>
+                <button id="submit_button">提交</button>
                 &nbsp;
                 <button type="reset" class="reset">重新输入</button>
             </div>
@@ -110,4 +114,43 @@
 </div>
 
 </body>
+
+<script>
+    document.getElementById("submit_button").addEventListener("click", function (){
+       let name=document.getElementById("bookname").value;
+       let author=document.getElementById("author").value;
+       let price=document.getElementById("price").value;
+       let publisher=document.getElementById("publisher").value;
+       let filenode=document.getElementById("photo").files;
+
+
+       let reader=new FileReader();
+       reader.readAsBinaryString(filenode[0]);
+
+       reader.onload=function (){
+
+       }
+
+       let data={
+           "name":name,
+           "author":author,
+           "price":price,
+           "publisher":publisher
+       }
+
+       let xhr=new XMLHttpRequest();
+       xhr.open("post","NewBook");
+       xhr.send(data);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    if (xhr.responseText !== "") {
+                        doAjax();
+                    }
+                }
+            }
+        }
+
+    });
+</script>
 </html>
