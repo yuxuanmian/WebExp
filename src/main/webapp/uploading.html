@@ -5,14 +5,19 @@
     <title>用户上传界面</title>
     <link href="css/sign.css" rel="stylesheet" type="text/css">
     <style>
+        button{
+            font-size: x-large;
+            border-radius: 10px;
+        }
         .div{
             height: 100%;
         }
         input{
-            background: rgba(45,45,45,0.15);
+            width: 400px;
+            background:rgba(45,45,45,0.15);
             border-radius: 5px;
-            border: 1px solid gray;
-            font-size: 20px;
+            border:1px solid gray;
+            font-size: 30px;
         }
         #all{
             position: absolute;
@@ -27,6 +32,13 @@
         }
         .bookmessage{
             height: 90px;
+        }
+        #box{
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            top:50px;
+            left: 15%;
         }
 #headtype{
     position: absolute;
@@ -63,6 +75,7 @@
         </tr>
     </table>
     <div id="all">
+        <div id="box">
     <div id="headtype">
     <h2>欢迎提供你想要上交的图书</h2>
     </div>
@@ -92,6 +105,7 @@
                 <button type="reset" class="reset">重新输入</button>
             </div>
     </div>
+        </div>
     </div>
 </div>
 

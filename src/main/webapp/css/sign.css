@@ -18,7 +18,7 @@ a{
     position:relative;/*相对定位*/
     background-color: bisque;
    width: 1300px;
-    height:130%;
+    height:140%;
     margin: 0 auto;
     overflow: hidden;
 }
